@@ -1,13 +1,13 @@
-package com.ichi.Endpoint.Auto.Mapping;
+package com.ichi0915.Endpoint.Auto.Mapping;
 
 import org.junit.jupiter.api.Test;
+
 import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
+@SpringBootTest(classes = {EndpointAutoMappingApplication.class})
 class EndpointAutoMappingApplicationTests {
 
 	@Test
-	void contextLoads() {
-	}
+	public void startupTest() {}
 
 }

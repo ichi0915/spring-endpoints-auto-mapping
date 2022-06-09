@@ -1,5 +1,5 @@
 plugins {
-	id 'org.springframework.boot' version '2.7.0'
+	id 'org.springframework.boot' version '2.3.12.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
 }
@@ -16,6 +16,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
+
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 
 	compileOnly 'org.projectlombok:lombok:1.18.22'
@@ -26,19 +27,24 @@ dependencies {
 //	compileOnly 'org.springframework.boot:spring-boot-starter-actuator'
 //	implementation "org.springframework.boot:spring-boot-starter-actuator"
 
-	implementation platform("io.spinnaker.kork:kork-bom:$korkVersion")
+	implementation( platform("io.spinnaker.kork:kork-bom:$korkVersion"))
 	annotationProcessor platform("io.spinnaker.kork:kork-bom:$korkVersion")
 	annotationProcessor platform("io.spinnaker.kork:kork-bom:$korkVersion")
 	testAnnotationProcessor platform("io.spinnaker.kork:kork-bom:$korkVersion")
 
-	implementation "io.spinnaker.kork:kork-artifacts"
-	implementation "io.spinnaker.kork:kork-credentials"
-	implementation "io.spinnaker.kork:kork-core"
-	implementation "io.spinnaker.kork:kork-jedis"
-	implementation "io.spinnaker.kork:kork-retrofit"
+
+
+	compileOnly "io.spinnaker.kork:kork-artifacts"
+//	compileOnly "io.spinnaker.kork:kork-credentials"
+//	compileOnly "io.spinnaker.kork:kork-core"
+//	compileOnly "io.spinnaker.kork:kork-jedis"
+//	compileOnly "io.spinnaker.kork:kork-retrofit"
 	implementation "io.spinnaker.kork:kork-web"
-	implementation "io.spinnaker.kork:kork-annotations"
-	implementation "io.spinnaker.kork:kork-moniker"
+//	compileOnly "io.spinnaker.kork:kork-annotations"
+//	compileOnly "io.spinnaker.kork:kork-moniker"
+	implementation "io.spinnaker.kork:kork-exceptions"
+
+	implementation "com.amazonaws:aws-java-sdk"
 }
 
 tasks.named('test') {

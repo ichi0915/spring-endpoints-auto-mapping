@@ -4,10 +4,9 @@ import com.ichi0915.Endpoint.Auto.Mapping.exceptions.AtomicOperationNotFoundExce
 import com.ichi0915.Endpoint.Auto.Mapping.exceptions.DescriptionValidationException;
 import com.netflix.spinnaker.kork.web.exceptions.ExceptionMessageDecorator;
 import com.netflix.spinnaker.kork.exceptions.SystemException;
-import com.netflix.spinnaker.security.AuthenticatedRequest;
+import com.ichi0915.Endpoint.Auto.Mapping.security.AuthenticatedRequest;
 import com.netflix.spectator.api.Id;
 import com.netflix.spectator.api.Registry;
-// import com.ichi0915.Endpoint.Auto.Mapping.security.AuthenticatedRequest;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -24,6 +23,7 @@ import org.springframework.lang.Nullable;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.base.Splitter;
 
+import org.springframework.stereotype.Service;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ObjectError;
 
@@ -34,6 +34,7 @@ import lombok.Value;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
+@Service
 public class OperationsService {
 
 	private final Splitter COMMA_SPLITTER = Splitter.on(",");
@@ -145,22 +146,22 @@ public class OperationsService {
 								validator.validate(descriptions, description, errors);
 							}
 
-							allowedAccountValidators.forEach(
-								it -> it.validate(username, allowedAccounts, description, errors));
+//							allowedAccountValidators.forEach(
+//								it -> it.validate(username, allowedAccounts, description, errors));
 
-							if (description != null) {
-								DescriptionAuthorizer descriptionAuthorizer =
-									descriptionAuthorizers.stream()
-										.filter(it -> it.supports(description))
-										.findFirst()
-										.orElseThrow(
-											() ->
-												new SystemException(
-													"Unable to find supporting description authorizer for {}",
-													description.getClass().getSimpleName()));
-
-								descriptionAuthorizer.authorize(description, errors);
-							}
+//							if (description != null) {
+//								DescriptionAuthorizer descriptionAuthorizer =
+//									descriptionAuthorizers.stream()
+//										.filter(it -> it.supports(description))
+//										.findFirst()
+//										.orElseThrow(
+//											() ->
+//												new SystemException(
+//													"Unable to find supporting description authorizer for {}",
+//													description.getClass().getSimpleName()));
+//
+//								descriptionAuthorizer.authorize(description, errors);
+//							}
 
 							// TODO(rz): This is so bad. We convert the description input twice (once
 							// above) and then once inside of this convertOperation procedure. This
