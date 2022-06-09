@@ -17,6 +17,28 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+
+	compileOnly 'org.projectlombok:lombok:1.18.22'
+	annotationProcessor 'org.projectlombok:lombok:1.18.22'
+	testCompileOnly 'org.projectlombok:lombok:1.18.22'
+	testAnnotationProcessor 'org.projectlombok:lombok:1.18.22'
+
+//	compileOnly 'org.springframework.boot:spring-boot-starter-actuator'
+//	implementation "org.springframework.boot:spring-boot-starter-actuator"
+
+	implementation platform("io.spinnaker.kork:kork-bom:$korkVersion")
+	annotationProcessor platform("io.spinnaker.kork:kork-bom:$korkVersion")
+	annotationProcessor platform("io.spinnaker.kork:kork-bom:$korkVersion")
+	testAnnotationProcessor platform("io.spinnaker.kork:kork-bom:$korkVersion")
+
+	implementation "io.spinnaker.kork:kork-artifacts"
+	implementation "io.spinnaker.kork:kork-credentials"
+	implementation "io.spinnaker.kork:kork-core"
+	implementation "io.spinnaker.kork:kork-jedis"
+	implementation "io.spinnaker.kork:kork-retrofit"
+	implementation "io.spinnaker.kork:kork-web"
+	implementation "io.spinnaker.kork:kork-annotations"
+	implementation "io.spinnaker.kork:kork-moniker"
 }
 
 tasks.named('test') {
