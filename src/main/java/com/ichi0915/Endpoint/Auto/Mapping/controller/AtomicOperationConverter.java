@@ -1,5 +1,6 @@
 package com.ichi0915.Endpoint.Auto.Mapping.controller;
 
+import com.ichi0915.Endpoint.Auto.Mapping.description.OperationDescription;
 import com.netflix.spinnaker.kork.annotations.Beta;
 import java.util.Map;
 import javax.annotation.Nullable;

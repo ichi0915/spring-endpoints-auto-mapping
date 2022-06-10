@@ -1,5 +1,6 @@
 package com.ichi0915.Endpoint.Auto.Mapping.controller;
 
+import com.ichi0915.Endpoint.Auto.Mapping.description.OperationDescription;
 import com.ichi0915.Endpoint.Auto.Mapping.exceptions.AtomicOperationNotFoundException;
 import com.ichi0915.Endpoint.Auto.Mapping.exceptions.DescriptionValidationException;
 import com.netflix.spinnaker.kork.web.exceptions.ExceptionMessageDecorator;

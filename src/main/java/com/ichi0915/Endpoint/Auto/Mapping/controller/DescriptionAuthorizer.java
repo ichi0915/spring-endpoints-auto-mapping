@@ -1,5 +1,6 @@
 package com.ichi0915.Endpoint.Auto.Mapping.controller;
 
+import com.ichi0915.Endpoint.Auto.Mapping.description.OperationDescription;
 import org.springframework.validation.Errors;
 
 /** Authorizes atomic operation description objects. */
